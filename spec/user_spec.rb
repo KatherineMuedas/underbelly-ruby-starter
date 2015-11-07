@@ -25,11 +25,11 @@ describe Underbelly::User do
   end
 
   it 'should print names of teams and followers' do
-      Underbelly::User.print_names_and_followers("Facebook,Underbelly")
+      Underbelly::User.print_names_and_followers("Underbelly,Facebook")
       expect(File).to exist("output.txt")
-      expect_lines = ["Facebook - 11698\n", "Underbelly - 3652\n"]
+      expect_lines = ["Facebook -", "Underbelly -"]
       File.readlines("output.txt").each_with_index do |line, index|
-        expect(line).to eql(expect_lines[index])
+        expect(line).to match(expect_lines[index])
       end
   end
 end

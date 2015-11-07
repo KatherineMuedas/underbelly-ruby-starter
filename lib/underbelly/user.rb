@@ -1,21 +1,30 @@
 module Underbelly
   class User
     attr_accessor :users, :id, :name, :username, :html_url, :avatar_url, :bio, :location, :links, :buckets_count, :comments_received_count, :followers_count, :followings_count, :likes_count, :likes_received_count, :projects_count, :rebounds_received_count, :shots_count, :teams_count, :can_upload_shot, :type, :pro, :buckets_url, :followers_url, :following_url, :likes_url, :shots_url, :teams_url, :created_at, :updated_at
+    
+    #finds a team and returns a search object with a user object
     def self.find(user, options={})
       Underbelly::Search.new("/users/#{user}", options)
     end
+    
+    #replace all the spaces with nothing and separate teams by commas
     def self.muilt_find(user_names, options={})
-      @users = user_names.strip.split(',').map do |user|
+      user_names.gsub(" ","").split(',').map do |user|
         find(user).user
-      end
+      end.compact
     end
+    
+    #Set the attributes for the object from the search result
     def initialize(values)
       values.each do |attribute_name, attribute_value|
+        #transform the key of the hash(attribute_name) into an instances variable and sets the value(attribute_value)
+        #same as 
+        # @id = values["id"]
         self.instance_variable_set("@#{attribute_name}", attribute_value)
       end    
     end
 
-    
+    #Outputs a list of team names and followers counts sorted by followers counts
     def self.print_names_and_followers(user_names, options={})
       users = muilt_find(user_names, options)
       sorted_users = users.sort_by { |user| user.followers_count }.reverse
