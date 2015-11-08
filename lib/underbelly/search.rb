@@ -1,7 +1,7 @@
 require 'httparty'
 module Underbelly
   class Search
-    attr_accessor :status, :response, :message, :user
+    attr_accessor :status, :message, :user
     def initialize(path, options = {})
       search_url = Underbelly::BASE_URL + path
       search(search_url, options)

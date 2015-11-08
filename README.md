@@ -22,7 +22,7 @@ To open in console:
 
 ###Find Multi Users
 
-`users_response =Underbelly::User.muilt_find('Dribbble,dropbox,focuslab,instagram,Facebook,Underbelly')`
+`users_response =Underbelly::User.multi_find('Dribbble,dropbox,focuslab,instagram,Facebook,Underbelly')`
 
 `users_response.first.name`
 

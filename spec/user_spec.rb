@@ -14,7 +14,7 @@ describe Underbelly::User do
 
   
   it 'should search by multiple team names' do
-    search = Underbelly::User.muilt_find("Facebook,Underbelly")
+    search = Underbelly::User.multi_find("Facebook,Underbelly")
     expect(search) 
     expect(search).to be_a_kind_of(Array)
     expect(search.first).to be_a_kind_of(Underbelly::User)
