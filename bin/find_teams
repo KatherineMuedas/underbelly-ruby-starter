@@ -1,0 +1,12 @@
+#!/usr/bin/env ruby
+require_relative '../lib/underbelly'
+
+puts "What teams do you want bro!?"
+puts "Example: Facebook,Underbelly"
+print "Teams: "
+answer = gets.chomp
+Underbelly::User.print_names_and_followers(answer)
+puts "************************"
+puts File.read('output.txt')
+puts "************************"
+puts "DONE =)"

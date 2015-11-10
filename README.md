@@ -1,6 +1,9 @@
-# underbelly-ruby-starter
+# Dribbble teams finder
 
-To get started clone the repo then run `bundle install`
+To get started clone the repo then run: `bundle install`
+
+To get a list of teams with their amount of followers run:
+`ruby bin/find_teams`
 
 To run the application do:
 `ruby bin/console`
@@ -22,7 +25,7 @@ To open in console:
 
 ###Find Multi Users
 
-`users_response =Underbelly::User.multi_find('Dribbble,dropbox,focuslab,instagram,Facebook,Underbelly')`
+`users_response = Underbelly::User.multi_find('Dribbble,dropbox,focuslab,instagram,Facebook,Underbelly')`
 
 `users_response.first.name`
 
