@@ -1,4 +1,5 @@
 require 'spec_helper'
+
 describe Underbelly::User do
   it 'should find by team' do
     search = Underbelly::User.find("Facebook")

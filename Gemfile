@@ -5,20 +5,3 @@ gem "rake"
 gem 'pry'
 gem 'httparty'
 gem 'dotenv'
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
